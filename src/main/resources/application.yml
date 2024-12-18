@@ -1,0 +1,34 @@
+spring:
+
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      idle-timeout: 30000
+      leak-detection-threshold: 2000
+      connection-timeout: 30000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  application:
+    name: Task-management
+server:
+  port: 9096
+  servlet:
+    context-path: /task-management
+application:
+  config:
+    trace: true
+jwt:
+  tokenValidityInSeconds: 72000 #2 hours
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
